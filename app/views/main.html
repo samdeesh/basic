@@ -1,0 +1,17 @@
+<div class="jumbotron">
+    <h1>'Welcome!</h1>
+    <p class="lead">
+        It's always a pleasure to make apps.
+    </p>
+</div>
+
+<div class="row marketing">
+    <h4>HTML5 Machine code: Sample Json Response using GET:</h4>
+    <div class="media" ng-repeat="item in main.response.data">
+        <div class="media-body">
+            <h4 class="media-heading">{{::item.id}}. {{::item.title}}</h4>
+            <p>{{::item.body}}</p>
+        </div>
+    </div>
+    <loading ng-hide="main.response"></loading>
+</div>
