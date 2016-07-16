@@ -50,6 +50,11 @@ body {
   font-size: 21px;
   padding: 14px 24px;
 }
+.media .media-body{
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 20px;
+}
+
 
 /* Supporting marketing content */
 .marketing {

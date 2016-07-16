@@ -11,10 +11,7 @@ angular.module('machineAppApp')
   .service('DataHouse', function ($http) {
     var self= this;
     self.getData = function(){
-        return $http.get("http://jsonplaceholder.typicode.com/posts")
+        return $http.get("/assets/cart.json")
     } 
-    self.putData = function(data){
-        return $http.post("http://jsonplaceholder.typicode.com/posts", data);
-    }
     return self;
   });

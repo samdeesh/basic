@@ -20,7 +20,7 @@ angular
     ])
     .config(function ($routeProvider) {
         $routeProvider
-            .when('/home', {
+            .when('/cart', {
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl',
                 controllerAs: 'main'
@@ -31,18 +31,12 @@ angular
                 controllerAs: 'about'
             })
             .when('/login', {
-                templateUrl: 'views/login.html',
+                templateUrl: 'views/cart.html',
                 controller: 'LoginCtrl',
                 controllerAs: 'login'
             })
             .otherwise({
-                redirectTo: '/home'
+                redirectTo: '/cart'
             });
-    }).run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
-        $rootScope.$on('$routeChangeStart', function (event) {
-            if (!Auth.isLoggedIn()) {
-                $location.path('/login');
-                return;
-            }
-        });
-    }]);
+    });
+    

@@ -1,17 +1,53 @@
-<div class="jumbotron">
-    <h1>'Welcome!</h1>
-    <p class="lead">
-        It's always a pleasure to make apps.
-    </p>
-</div>
+<div class="row hidden-sm hidden-xs" style="border-bottom:thick solid #ccc">
+    <div class="col-sm-3 ">
+        Items
+    </div>
+    <div class="col-sm-9 ">
+        <div class="row">
+            <div class="col-md-6">
 
-<div class="row marketing">
-    <h4>HTML5 Machine code: Sample Json Response using GET:</h4>
-    <div class="media" ng-repeat="item in main.response.data">
-        <div class="media-body">
-            <h4 class="media-heading">{{::item.id}}. {{::item.title}}</h4>
-            <p>{{::item.body}}</p>
+            </div>
+            <div class="col-md-2">Size</div>
+            <div class="col-md-2">Qty</div>
+            <div class="col-md-2">Price</div>
         </div>
     </div>
-    <loading ng-hide="main.response"></loading>
+</div>
+<div class="row" style="padding:20px 0; border-bottom:1px solid #e5e5e5" ng-repeat="item in main.response.data.productsInCart">
+    <div class="col-sm-3 col-xs-5">
+        <img class="media-object" ng-src="{{::item.p_image}}" alt="{{::item.p_name}}">
+    </div>
+    <div class="col-sm-9 col-xs-7">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="media-heading">{{::item.p_name|uppercase}}</h4>
+                <p>Style #:{{::item.p_style|uppercase}}</p>
+                <p>Colour:{{::item.p_selected_color.name|uppercase}}</p>
+            </div>
+            <div class="col-md-2">{{::item.p_selected_size.code|uppercase}}</div>
+            <div class="col-md-2">
+                <input type="number" style="
+    width: 50px;" value="{{::item.p_quantity}}">
+            </div>
+            <div class="col-md-2">{{::item.c_currency}}{{::item.p_originalprice}}</div>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li ng-repeat="item in items">
+                <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+            </li>
+        </ul>
+        Selected: <b>{{ selected.item }}</b>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
 </div>
