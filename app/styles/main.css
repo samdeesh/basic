@@ -30,6 +30,30 @@ body {
   padding-bottom: 19px;
 }
 
+.actions, .colors{
+  padding: 0;
+}
+.colors li{
+  display: inline;
+  margin: 0 5px;
+  min-width: 20px;
+  min-height: 10px;
+}
+
+.colors li.active{
+  border:  thin solid; 
+}
+
+.actions li{
+  display: inline;
+  border-left: 1px solid;
+  padding: 0 5px;
+}
+
+.actions li:first-child{
+  border-left: hidden;
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;
