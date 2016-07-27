@@ -30,83 +30,58 @@ body {
   padding-bottom: 19px;
 }
 
-.actions, .colors{
-  padding: 0;
+.card{
+  padding:10px;
+  position:relative;
 }
-.colors li{
-  display: inline;
-  margin: 0 5px;
-  min-width: 20px;
-  min-height: 10px;
+.card img{
+  max-height:200px;
 }
-
-.colors li.active{
-  border:  thin solid; 
+.fa .dropdown{
+  display: none;
 }
-
-.actions li{
-  display: inline;
-  border-left: 1px solid;
-  padding: 0 5px;
+.card:hover  .dropdown{
+  display:block;
 }
-
-.actions li:first-child{
-  border-left: hidden;
+.card:hover .overlay{
+  color:transparent;
+  text-shadow: none;
 }
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+.card .overlay{
+  color: white;
+  text-shadow: 0px 1px 1px #ccc;
+  font-size:1.2em;
+  position:absolute;
+  bottom:25px;
+  right:20px;
 }
-
-.container-narrow > hr {
-  margin: 30px 0;
+.card .dropdown > li{
+  background:rgba(0,0,0,0.3);
+  color:white;
+  display:block;
+  line-height:1.5em;
+  padding:0 5px;
+  text-transform:capitalize;
 }
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+.card .dropdown>li:hover{
+  font-weight:bold;
 }
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-.media .media-body{
-    border-bottom: 1px solid #e5e5e5;
-    padding-bottom: 20px;
+.card .title{
+  color:white;
+  font-size:1.2em;
+  position:absolute;
+  bottom:35px;
+  left:20px;
+  text-shadow: 0px 1px 1px black;
 }
 
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+@media screen and (min-width: 666px)  and (max-width: 1000px) {
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.card .overlay{
+  right:11vw;
+}
+  
 }

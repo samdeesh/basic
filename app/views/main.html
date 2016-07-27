@@ -1,93 +1,12 @@
-<div class="row hidden-sm hidden-xs" style="border-bottom:thick solid #ccc">
-    <div class="col-sm-3 ">
-        Items
-    </div>
-    <div class="col-sm-9 ">
-        <div class="row">
-            <div class="col-md-6">
 
-            </div>
-            <div class="col-md-2">Size</div>
-            <div class="col-md-2">Qty</div>
-            <div class="col-md-2">Price</div>
-        </div>
+  <div class="row">
+    <div class="card col-xs-6 col-lg-3" ng-repeat="item in main.response.data.productsInCart">
+      <img ng-src="{{::item.p_image}}" alt="image" class="img-responsive" />
+      <span class="title">{{::item.p_name|uppercase}}</span>
+      <span class="fa fa-ellipsis-h overlay"><ul class="dropdown">
+  <li>open</li>
+  <li>delete</li>
+  <li>edit</li>
+</ul></span>
     </div>
-</div>
-<div class="row" style="padding:20px 0; border-bottom:1px solid #e5e5e5" ng-repeat="item in main.response.data.productsInCart">
-    <div class="col-sm-3 col-xs-5">
-        <img class="media-object" ng-src="{{::item.p_image}}" alt="{{::item.p_name}}">
-    </div>
-    <div class="col-sm-9 col-xs-7">
-        <div class="row">
-            <div class="col-md-6">
-                <h4 class="media-heading">{{::item.p_name|uppercase}}</h4>
-                <p>Style #:{{::item.p_style|uppercase}}</p>
-                <p>Colour:{{item.p_selected_color.name|uppercase}}</p>
-            </div>
-            <div class="col-md-2">{{item.p_selected_size.code|uppercase}}</div>
-            <div class="col-md-2">
-                <input type="number" style="width: 50px;" ng-model="item.p_quantity" ng-change="main.setSubTotal()">
-            </div>
-            <div class="col-md-2">
-                <h4 style="margin:0">{{item.p_quantity*item.p_price|currency}}</h4>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-9 col-xs-12">
-                    <ul class="actions">
-                    <li ng-click="main.editItem(main.response.data.productsInCart, $index)">Edit</li>
-                    <li ng-click="main.removeItem(item)">X Remove</li>
-                    <li>Save for Later</li>
-                    </ul>
-    </div>
-</div>
-<div class="row meta">
-    <div class="col-sm-3 hidden-xs" >
-        <h4>Need help</h4>
-        <h4>or have a question</h4>
-        <p>Call customer service at 1-800-555-5555</p>
-        <p><u>Chat with any of our stylists</u></p>
-        <p><u>See return and exchange policy</u></p>
-    </div>
-    <div class="col-sm-9">
-        <div class="">
-            <span>Enter Promotion code or gift card</span>
-            <input type="text" ng-model="main.coupon">
-            <button class="btn" ng-click="main.setTotal()">Apply</button>
-        </div>
-        <hr>
-        <span class="pull-left">Subtotal</span>
-        <span class="pull-right">{{main.subTotal|currency}}</span>
-        <br>
-        <span class="pull-left" ng-if="main.discAmt">Promotion code {{main.coupon}}</span>
-        <span ng-if="main.discAmt" class="pull-right">-{{main.discAmt|currency}}</span>
-        <br>
-        <span class="pull-left" ng-if="(main.total>50)">Estimated Shipping</span>
-        <span ng-if="(main.total>50)" class="pull-right">Free</span>
-        <br>
-        <span class="pull-left">Estimated Total</span>
-        <span class="pull-right">{{main.total|currency}}</span>
-        <br>
-    </div>
-</div>
-<script type="text/ng-template" id="myModalContent.html">
-    <div class="modal-body">
-        <div class="row">
-            <div class="col-sm-6">
-                <h4>{{::selected.p_name|uppercase}}</h4>
-                <h2>{{selected.p_quantity*selected.p_price|currency}}</h2>
-                <h4>{{selected.p_selected_color.name|uppercase}}</h4>
-                <ul class="colors">
-                    <li ng-click="selected.p_selected_color = init" style="background:{{::selected.p_selected_color.hexcode}}" class="{{selected.p_selected_color.name == init.name?'active':''}}" ng-init="init= selected.p_selected_color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                    <li ng-click="selected.p_selected_color = col" class="{{selected.p_selected_color.name == col.name?'active':''}}" ng-repeat="col in selected.p_available_options.colors" style="background:{{col.hexcode}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                    </li>
-                </ul>
-                <select ng-options="item as item.code for item in selected.p_available_options.sizes" ng-model="selected.p_selected_size"></select> <input type="number" style="width: 50px;" ng-model="selected.p_quantity" ng-change="main.setSubTotal()"> <br/> <br/>
-        <button class="btn btn-primary" type="button" ng-click="ok()">EDIT</button> <br/> <br/>
-                <u>See product details</u>
-            </div>    
-            <div class="col-sm-6"><img ng-src="{{::selected.p_image}}"></div>    
-        </div>
-    </div>
-</script>
 </div>
